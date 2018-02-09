@@ -1,7 +1,7 @@
-package eg.edu.alexu.csd.oop.draw.cs29.Model.Shapes;
+package com.example.android.paint.draw.cs29.Model.Shapes;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import android.graphics.Canvas;
+
 import java.util.HashMap;
 import java.util.Map;
 /**
@@ -22,34 +22,37 @@ public class Ellipse extends Shape {
 	/** pt is the Top left of the rectangle. */
 	/** redraw the shape on the canvas. */
 	@Override
-	public final void draw(final Graphics canvas) {
-		((Graphics2D) canvas).setColor(this.getFillColor());
-		((Graphics2D) canvas).fillRoundRect(
-		    (int) this.getPosition().getX()
-		    - (this.getProperties().get("xDiameter").intValue() / 2),
-		    (int) this.getPosition().getY()
-		    - (this.getProperties().get("yDiameter").intValue() / 2),
-		    this.getProperties().get("xDiameter").intValue(),
-		    this.getProperties().get("yDiameter").intValue(),
-		    this.getProperties().get("xDiameter").intValue(),
-		    this.getProperties().get("yDiameter").intValue());
-		((Graphics2D) canvas).setStroke(new java.awt.BasicStroke(2));
-		((Graphics2D) canvas).setColor(this.getColor());
-    ((Graphics2D) canvas).drawRoundRect(
-        (int) this.getPosition().getX()
-        - (this.getProperties().get("xDiameter").intValue() / 2),
-        (int) this.getPosition().getY()
-        - (this.getProperties().get("yDiameter").intValue() / 2),
-        this.getProperties().get("xDiameter").intValue(),
-        this.getProperties().get("yDiameter").intValue(),
-        this.getProperties().get("xDiameter").intValue(),
-        this.getProperties().get("yDiameter").intValue());
+	public final void draw(final Canvas canvas) {
+		//TODO draw function
+//		((Graphics2D) canvas).setColor(this.getFillColor());
+//		((Graphics2D) canvas).fillRoundRect(
+//		    (int) this.getPosition().getX()
+//		    - (this.getProperties().get("xDiameter").intValue() / 2),
+//		    (int) this.getPosition().getY()
+//		    - (this.getProperties().get("yDiameter").intValue() / 2),
+//		    this.getProperties().get("xDiameter").intValue(),
+//		    this.getProperties().get("yDiameter").intValue(),
+//		    this.getProperties().get("xDiameter").intValue(),
+//		    this.getProperties().get("yDiameter").intValue());
+//		((Graphics2D) canvas).setStroke(new java.awt.BasicStroke(2));
+//		((Graphics2D) canvas).setColor(this.getColor());
+//    ((Graphics2D) canvas).drawRoundRect(
+//        (int) this.getPosition().getX()
+//        - (this.getProperties().get("xDiameter").intValue() / 2),
+//        (int) this.getPosition().getY()
+//        - (this.getProperties().get("yDiameter").intValue() / 2),
+//        this.getProperties().get("xDiameter").intValue(),
+//        this.getProperties().get("yDiameter").intValue(),
+//        this.getProperties().get("xDiameter").intValue(),
+//        this.getProperties().get("yDiameter").intValue());
 	}
 	/**
 	 * creates a deep clone of the shape.
 	 */
 	@Override
 	public final Object clone() throws CloneNotSupportedException {
+		//TODO check clone function if correct
+
 		Shape clonedShape = new Ellipse();
 		clonedShape.setPosition(this.getPosition());
 		clonedShape.setColor(this.getColor());

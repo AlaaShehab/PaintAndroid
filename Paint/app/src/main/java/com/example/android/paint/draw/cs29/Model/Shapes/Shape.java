@@ -1,12 +1,13 @@
-package eg.edu.alexu.csd.oop.draw.cs29.Model.Shapes;
+package com.example.android.paint.draw.cs29.Model.Shapes;
 
-import java.awt.Color;
-import java.awt.Point;
+import android.graphics.Color;
+import android.graphics.Point;
+
 import java.util.Map;
 /**
  * @author saraheldafrawy.
  */
-public abstract class Shape implements eg.edu.alexu.csd.oop.draw.Shape {
+public abstract class Shape implements com.example.android.paint.draw.Shape {
   /** static zero. */
 	private static final double ZERODEFAULT = 0.0;
   /** Shape position usually set to center. */

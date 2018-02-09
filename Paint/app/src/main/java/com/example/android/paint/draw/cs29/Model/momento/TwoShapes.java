@@ -1,6 +1,6 @@
-package eg.edu.alexu.csd.oop.draw.cs29.Model.momento;
+package com.example.android.paint.draw.cs29.Model.momento;
 
-import eg.edu.alexu.csd.oop.draw.Shape;
+import com.example.android.paint.draw.Shape;
 
 /**
  * Stores two shapes to be passed as a moment.

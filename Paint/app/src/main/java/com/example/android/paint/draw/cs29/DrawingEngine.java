@@ -1,28 +1,21 @@
-package eg.edu.alexu.csd.oop.draw.cs29;
+package com.example.android.paint.draw.cs29;
 
-import java.awt.Graphics;
-import java.io.IOException;
+import android.graphics.Canvas;
+
+import com.example.android.paint.draw.Shape;
+import com.example.android.paint.draw.cs29.Model.momento.CareTaker;
+import com.example.android.paint.draw.cs29.Model.momento.Originator;
+import com.example.android.paint.draw.cs29.Model.momento.TwoShapes;
+
 import java.util.ArrayList;
-import java.util.List;
-import eg.edu.alexu.csd.oop.draw.Shape;
-import eg.edu.alexu.csd.oop.draw.cs29.Model.Shapes.Circle;
-import eg.edu.alexu.csd.oop.draw.cs29.Model.Shapes.Ellipse;
-import eg.edu.alexu.csd.oop.draw.cs29.Model.Shapes.Rectangle;
-import eg.edu.alexu.csd.oop.draw.cs29.Model.Shapes.Square;
-import eg.edu.alexu.csd.oop.draw.cs29.Model.Shapes.Triangle;
-import eg.edu.alexu.csd.oop.draw.cs29.Model.momento.CareTaker;
-import eg.edu.alexu.csd.oop.draw.cs29.Model.momento.Originator;
-import eg.edu.alexu.csd.oop.draw.cs29.Model.momento.TwoShapes;
 
 /**
- * @author SarahEldafrawy & YoumnaDwidar
+ * @author SarahEldafrawy
  */
-public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
+public class DrawingEngine implements com.example.android.paint.draw.DrawingEngine {
 
   /** pointer to listOfShapes. */
   private ArrayList<Shape> listOfShapes;
-  /** pointer to listOfSupportedClasses. */
-  private List<Class<? extends Shape>> listOfSupportedClasses;
   /** pointer to originator. */
   private Originator originator;
   /** pointer to careTaker. */
@@ -39,20 +32,13 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
     listOfShapes = new ArrayList<>();
     originator = new Originator();
     careTaker = new CareTaker();
-    listOfSupportedClasses = new ArrayList<>();
-    listOfSupportedClasses.add(Circle.class);
-    listOfSupportedClasses.add(LineSegment.class);
-    listOfSupportedClasses.add(Ellipse.class);
-    listOfSupportedClasses.add(Rectangle.class);
-    listOfSupportedClasses.add(Triangle.class);
-    listOfSupportedClasses.add(Square.class);
   }
 
   /**
    * redraw shapes on canvas.
    */
   @Override
-  public final void refresh(final Graphics canvas) {
+  public final void refresh(final Canvas canvas) {
     for (int i = 0; i < listOfShapes.size(); i++) {
       listOfShapes.get(i).draw(canvas);
     }
@@ -110,14 +96,6 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
   }
 
   /**
-   * to return all supported shapes by the program.
-   */
-  @Override
-  public final List<Class<? extends Shape>> getSupportedShapes() {
-    return listOfSupportedClasses;
-  }
-
-  /**
    * undo the last performed operation.
    */
   @Override
@@ -162,27 +140,12 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
   }
 
   /**
-   * @param clss
-   *          to add plugin classes.
-   */
-  public final void addSupportedShapes(final Class<? extends Shape> clss) {
-    listOfSupportedClasses.add(clss);
-  }
-
-  // missing Jason
-  /**
    * save listOfShapes.
    */
   @Override
   public final void save(final String path) {
 
-    Save s = new Save();
-    try {
-      s.saveXML(path, listOfShapes);
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+  //TODO save function
   }
 
   /**
@@ -191,10 +154,9 @@ public class DrawingEngine implements eg.edu.alexu.csd.oop.draw.DrawingEngine {
   @Override
   public final void load(final String path) {
 
-    Load load = new Load();
+    //TODO Load function
 
-    listOfShapes = new ArrayList<>(load.loadXML(path));
-
+    /*memento*/
     currentIndexSaved = -1;
     indexRedoStackRemover = currentIndexSaved;
 

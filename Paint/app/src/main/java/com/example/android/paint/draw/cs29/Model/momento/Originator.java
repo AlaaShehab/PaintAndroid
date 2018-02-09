@@ -1,4 +1,5 @@
-package eg.edu.alexu.csd.oop.draw.cs29.Model.momento;
+package com.example.android.paint.draw.cs29.Model.momento;
+
 /**
  * @author saraheldafrawy
  *

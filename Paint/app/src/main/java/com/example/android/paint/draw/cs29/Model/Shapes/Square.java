@@ -1,7 +1,9 @@
-package eg.edu.alexu.csd.oop.draw.cs29.Model.Shapes;
+package com.example.android.paint.draw.cs29.Model.Shapes;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import android.graphics.Canvas;
+
+import com.example.android.paint.draw.cs29.Model.Shapes.Shape;
+
 import java.util.HashMap;
 import java.util.Map;
 /**
@@ -18,25 +20,27 @@ public class Square extends Shape {
 	}
 	/** pt is the Top left of the square. */
 	@Override
-	public final void draw(final Graphics canvas) {
+	public final void draw(final Canvas canvas) {
+		//TODO draw function
 
-		((Graphics2D) canvas).setColor(this.getFillColor());
-		((Graphics2D) canvas).fillRect(
-		    (int) this.getPosition().getX(),
-		    (int) this.getPosition().getY(),
-		    this.getProperties().get("length").intValue(),
-		    this.getProperties().get("length").intValue());
-		((Graphics2D) canvas).setStroke(new java.awt.BasicStroke(2));
-		((Graphics2D) canvas).setColor(this.getColor());
-    ((Graphics2D) canvas).drawRect((int) this.getPosition().getX(),
-        (int) this.getPosition().getY(),
-        this.getProperties().get("length").intValue(),
-        this.getProperties().get("length").intValue());
+//		((Graphics2D) canvas).setColor(this.getFillColor());
+//		((Graphics2D) canvas).fillRect(
+//		    (int) this.getPosition().getX(),
+//		    (int) this.getPosition().getY(),
+//		    this.getProperties().get("length").intValue(),
+//		    this.getProperties().get("length").intValue());
+//		((Graphics2D) canvas).setStroke(new java.awt.BasicStroke(2));
+//		((Graphics2D) canvas).setColor(this.getColor());
+//    ((Graphics2D) canvas).drawRect((int) this.getPosition().getX(),
+//        (int) this.getPosition().getY(),
+//        this.getProperties().get("length").intValue(),
+//        this.getProperties().get("length").intValue());
 
 	}
 	/** creates a deep clone from shape.*/
 	@Override
 	public final Object clone() throws CloneNotSupportedException {
+		//TODO check clone function if correct
 		Shape clonedShape = new Square();
 		clonedShape.setPosition(this.getPosition());
 		clonedShape.setColor(this.getColor());

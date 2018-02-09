@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.example.android.paint.draw.Shape;
+import com.example.android.paint.touchStrategy.TouchStrategy;
 
 /**
  * Created by Alaa on 2/8/2018.
@@ -47,25 +48,27 @@ public class CanvasView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        //TODO total imlplementaion
+        //TODO total imlplementaion <Completed I think>
         //TODO rest of touch events (resize, delete, select, etc)
-//        String buttonSelected = getContext().getBtnSelected();
-//        shapeInUse = FactoryShapes.getShape(buttonSelected);
-//        TouchStrategy strategy = new StrategyFactory.getStrategy(buttonSelected);
-//        switch(event.getAction()) {
-//            case MotionEvent.ACTION_DOWN:
-//                strategy.actionDown(shapeInUse);
-//                break;
-//            case MotionEvent.ACTION_MOVE:
-//                strategy.actionMove(shapeInuse);
-//                break;
-//            case MotionEvent.ACTION_UP:
-//                strategy.actionUp(ShapeInUse);
-//                break;
-//            default:
-//                return false;
-//        }
-//        invalidate();
+        String buttonSelected = ((MainActivity)getContext()).getBtnSelected();
+        shapeInUse = FactoryShapes.getShape(buttonSelected);
+        TouchStrategy strategy = StrategyFactory.getStrategy(buttonSelected);
+        switch(event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                strategy.actionDown(shapeInUse);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                strategy.actionMove(shapeInUse);
+                break;
+            case MotionEvent.ACTION_UP:
+                strategy.actionUp(shapeInUse);
+                //TODO set cache bitmap
+                //TODO add shape to DrawingEngine
+                break;
+            default:
+                return false;
+        }
+        invalidate();
         return true;
     }
 }

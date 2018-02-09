@@ -1,7 +1,7 @@
-package eg.edu.alexu.csd.oop.draw.cs29.Model.Shapes;
+package com.example.android.paint.draw.cs29.Model.Shapes;
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import android.graphics.Canvas;
+
 import java.util.HashMap;
 import java.util.Map;
 /**
@@ -36,28 +36,29 @@ public class Triangle extends Shape {
 	 * draw function.
 	 */
 	@Override
-	public final void draw(final Graphics canvas) {
-		((Graphics2D) canvas).setColor(this.getFillColor());
-		for (int i = 0; i < xPoints.length; i++) {
-			xPoints[i] = this.getProperties()
-			    .get("point" + i + "x").intValue();
-		}
-		((Graphics2D) canvas).setColor(this.getFillColor());
-		for (int i = 0; i < yPoints.length; i++) {
-			yPoints[i] = this.getProperties()
-			    .get("point" + i + "y").intValue();
-		}
-		canvas.fillPolygon(xPoints, yPoints, NUMOFPOINTS);
-		((Graphics2D) canvas).setStroke(new java.awt.BasicStroke(2));
-    ((Graphics2D) canvas).setColor(this.getColor());
-    ((Graphics2D) canvas).drawPolygon(xPoints, yPoints, NUMOFPOINTS);
+	public final void draw(final Canvas canvas) {
+		//TODO draw function
+//		canvas.setColor(this.getFillColor());
+//		for (int i = 0; i < xPoints.length; i++) {
+//			xPoints[i] = this.getProperties()
+//			    .get("point" + i + "x").intValue();
+//		}
+//		((Graphics2D) canvas).setColor(this.getFillColor());
+//		for (int i = 0; i < yPoints.length; i++) {
+//			yPoints[i] = this.getProperties()
+//			    .get("point" + i + "y").intValue();
+//		}
+//		canvas.fillPolygon(xPoints, yPoints, NUMOFPOINTS);
+//		((Graphics2D) canvas).setStroke(new java.awt.BasicStroke(2));
+//    ((Graphics2D) canvas).setColor(this.getColor());
+//    ((Graphics2D) canvas).drawPolygon(xPoints, yPoints, NUMOFPOINTS);
 	}
 	/**
 	 * creates deep clone from shape.
 	 */
 	@Override
 	public final Object clone() throws CloneNotSupportedException {
-
+		//TODO check clone function if correct
 		Shape clonedShape = new Triangle();
 		clonedShape.setColor(this.getColor());
 		clonedShape.setFillColor(this.getFillColor());
