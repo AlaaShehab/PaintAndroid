@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!--TODO action listeners -->
-    <!--TODO manage weight  -->
+    <!--TODO action listeners (completed for toolbar btns only)-->
+    <!--TODO manage weight  (completed for toolbar btns only)-->
     <!--TODO manage image  -->
-    <!--TODO manage assign ID  -->
+    <!--TODO manage assign ID (completed for toolbar btns only) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -16,39 +16,93 @@
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/minimize"
+            android:padding="2dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="removeToolbar"
+            android:background="@drawable/ic_showhide"/>
+
         <ImageButton
+            android:id="@+id/shapes"
             android:layout_width="0dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingRight="2dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="setBtnSelected"
+            android:background=""/>
+
         <ImageButton
+            android:id="@+id/pencil"
             android:layout_width="0dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingRight="2dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="setBtnSelected"
+            android:background="@drawable/ic_pencil"/>
+
         <ImageButton
+            android:id="@+id/undo"
             android:layout_width="0dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingRight="2dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="undoAction"
+            android:background="@drawable/ic_undo"/>
+
         <ImageButton
+            android:id="@+id/redo"
             android:layout_width="0dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingRight="2dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="redoAction"
+            android:background="@drawable/ic_redo"/>
+
         <ImageButton
+            android:id="@+id/save"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="saveAction"
+            android:background="@drawable/ic_save"/>
+
+
         <ImageButton
+            android:id="@+id/share"
             android:layout_width="0dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingRight="2dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:onClick="shareAction"
+            android:background="@drawable/ic_share" />
 
     </LinearLayout>
 
-    <!--TODO custom view -->
+    <com.example.android.paint.CanvasView
+        android:id="@+id/canvas"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="15"
+        android:background="#FFFFFFFF" />
 
-    <!--TODO enable and disable toolbar on button click -->
+    <!--TODO custom view (completed) -->
+
+    <!--TODO enable and disable toolbar on button click (not here in the code itself using visibility)-->
 
     <!--TODO shapes copy, delete, resize, etc buttons -->
 
