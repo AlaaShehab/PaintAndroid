@@ -1,6 +1,7 @@
 package com.example.android.paint.draw.Model.Shapes;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,7 +37,7 @@ public class Triangle extends Shape {
 	 * draw function.
 	 */
 	@Override
-	public final void draw(final Canvas canvas) {
+	public final void draw(final Canvas canvas, Paint paint) {
 		//TODO draw function
 //		canvas.setColor(this.getFillColor());
 //		for (int i = 0; i < xPoints.length; i++) {

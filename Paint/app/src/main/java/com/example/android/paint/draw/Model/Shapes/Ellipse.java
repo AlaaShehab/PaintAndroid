@@ -1,6 +1,7 @@
 package com.example.android.paint.draw.Model.Shapes;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +23,7 @@ public class Ellipse extends Shape {
 	/** pt is the Top left of the rectangle. */
 	/** redraw the shape on the canvas. */
 	@Override
-	public final void draw(final Canvas canvas) {
+	public final void draw(Canvas canvas, Paint paint) {
 		//TODO draw function
 //		((Graphics2D) canvas).setColor(this.getFillColor());
 //		((Graphics2D) canvas).fillRoundRect(

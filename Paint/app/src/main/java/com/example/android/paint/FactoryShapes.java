@@ -3,7 +3,7 @@ package com.example.android.paint;
 import com.example.android.paint.draw.Shape;
 import com.example.android.paint.draw.Model.Shapes.Circle;
 import com.example.android.paint.draw.Model.Shapes.Ellipse;
-import com.example.android.paint.draw.Model.Shapes.Path;
+import com.example.android.paint.draw.Model.Shapes.PathShape;
 import com.example.android.paint.draw.Model.Shapes.Rectangle;
 import com.example.android.paint.draw.Model.Shapes.Square;
 import com.example.android.paint.draw.Model.Shapes.Triangle;
@@ -29,7 +29,7 @@ public class FactoryShapes {
         } else if (buttonSelected.equals("ellipse")) {
             return new Ellipse();
         } else if (buttonSelected.equals("path")) {
-            return new Path();
+            return new PathShape();
         } else {
             return null;
         }

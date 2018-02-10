@@ -40,7 +40,7 @@ public class DrawingEngine implements com.example.android.paint.draw.DrawingEngi
   @Override
   public final void refresh(final Canvas canvas) {
     for (int i = 0; i < listOfShapes.size(); i++) {
-      listOfShapes.get(i).draw(canvas);
+      listOfShapes.get(i).draw(canvas, listOfShapes.get(i).getPaint());
     }
   }
 

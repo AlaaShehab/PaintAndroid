@@ -1,5 +1,7 @@
 package com.example.android.paint.touchStrategy;
 
+import android.graphics.Point;
+
 import com.example.android.paint.draw.Shape;
 
 /**
@@ -8,18 +10,18 @@ import com.example.android.paint.draw.Shape;
 
 public class EllipseStrategy implements TouchStrategy {
     @Override
-    public void actionDown(Shape shapeInUse) {
+    public void actionDown(Shape shapeInUse, Point pt) {
         //TODO implement method
     }
 
     @Override
-    public void actionMove(Shape shapeInUse) {
+    public void actionMove(Shape shapeInUse, Point pt) {
         //TODO implement method
 
     }
 
     @Override
-    public void actionUp(Shape shapeInUse) {
+    public void actionUp(Shape shapeInUse, Point pt) {
         //TODO implement method
 
     }

@@ -2,6 +2,7 @@ package com.example.android.paint.draw;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Point;
 
 public interface Shape extends Cloneable {
@@ -19,9 +20,12 @@ public interface Shape extends Cloneable {
   
   public void setFillColor(Color color);
   public Color getFillColor();
+
+  public void setPaint(Paint paint);
+  public Paint getPaint();
   
   /* redraw the shape on the canvas */
-  public void draw(Canvas canvas);
+  public void draw(Canvas canvas, Paint paint);
   
   /* create a deep clone of the shape */
   public Object clone() throws CloneNotSupportedException;

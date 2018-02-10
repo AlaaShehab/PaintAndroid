@@ -32,8 +32,7 @@
             android:paddingRight="2dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:onClick="setBtnSelected"
-            android:background=""/>
+            android:onClick="setBtnSelected"/>
 
         <ImageButton
             android:id="@+id/pencil"
@@ -91,13 +90,13 @@
     </LinearLayout>
 
     <com.example.android.paint.CanvasView
-        android:id="@+id/canvas"
+        android:id="@+id/canvas_layout"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="3dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_weight="15"
+        android:layout_weight="18"
         android:background="#FFFFFFFF" />
 
     <!--TODO custom view (completed) -->

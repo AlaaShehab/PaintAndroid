@@ -1,6 +1,8 @@
 package com.example.android.paint.draw.Model.Shapes;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.util.Log;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,29 +18,19 @@ public class Circle extends Shape {
 		super();
 		Map map = new HashMap<>();
     this.setProperties(map);
-    this.getProperties().put("Diameter", this.getZerodefault());
+    this.getProperties().put("Radius", this.getZerodefault());
 	}
 	/* pt is the Top left of the rectangle */
 	/* redraw the shape on the canvas */
 	@Override
-	public final void draw(final Canvas canvas) {
+	public final void draw(Canvas canvas, Paint paint) {
 		//TODO draw function
-//		int diameter = this.getProperties().get("Diameter").intValue();
-//		((Graphics2D) canvas).setColor(this.getFillColor());
-//		((Graphics2D) canvas).fillRoundRect(
-//		    (int) this.getPosition().getX()
-//		    - (this.getProperties().get("Diameter").intValue() / 2),
-//		    (int) this.getPosition().getY()
-//		    - (this.getProperties().get("Diameter").intValue() / 2),
-//				diameter, diameter, diameter, diameter);
-//		((Graphics2D) canvas).setStroke(new java.awt.BasicStroke(2));
-//		((Graphics2D) canvas).setColor(this.getColor());
-//    ((Graphics2D) canvas).drawRoundRect(
-//        (int) this.getPosition().getX()
-//        - (this.getProperties().get("Diameer").intValue() / 2),
-//        (int) this.getPosition().getY()
-//        - (this.getProperties().get("Diameter").intValue() / 2),
-//        diameter, diameter, diameter, diameter);
+		//TODO setColors
+		//TODO set position on creating shape
+		canvas.drawCircle(
+				this.getPosition().x, this.getPosition().y,
+				getProperties().get("Radius").intValue(),
+				paint);
 	}
 	/**
 	 * creates a deep clone from the shape.
@@ -49,8 +41,7 @@ public class Circle extends Shape {
 
 		Shape clonedShape = new Circle();
 		clonedShape.setPosition(this.getPosition());
-		clonedShape.setColor(this.getColor());
-		clonedShape.setFillColor(this.getFillColor());
+		clonedShape.setPaint(this.getPaint());
 		Map<String, Double> newMap = new HashMap<>();
 		for (Map.Entry<String, Double> element
 		    : this.getProperties().entrySet()) {

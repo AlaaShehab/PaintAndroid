@@ -1,6 +1,7 @@
 package com.example.android.paint.draw.Model.Shapes;
 
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Point;
 
 import java.util.Map;
@@ -17,6 +18,7 @@ public abstract class Shape implements com.example.android.paint.draw.Shape {
   /** Shape constructor. */
   private Color clrFill, clrBorder;
 
+  private Paint paint;
   /** Shape constructor. */
   public Shape() {
     pt = new Point();
@@ -69,6 +71,15 @@ public abstract class Shape implements com.example.android.paint.draw.Shape {
 		return this.clrFill;
 	}
 
+	@Override
+	public void setPaint(Paint paint) {
+		this.paint = paint;
+	}
+
+	@Override
+	public Paint getPaint() {
+		return paint;
+	}
 	/** create a deep clone of the shape.
 	 * @throws CloneNotSupportedException exception if clone fails
 	 * @return cloned shape
