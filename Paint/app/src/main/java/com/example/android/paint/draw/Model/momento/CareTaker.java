@@ -1,4 +1,4 @@
-package com.example.android.paint.draw.cs29.Model.momento;
+package com.example.android.paint.draw.Model.momento;
 
 import java.util.ArrayList;
 /**

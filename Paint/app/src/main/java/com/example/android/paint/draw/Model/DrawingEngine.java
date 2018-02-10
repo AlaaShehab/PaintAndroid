@@ -1,11 +1,11 @@
-package com.example.android.paint.draw.cs29;
+package com.example.android.paint.draw.Model;
 
 import android.graphics.Canvas;
 
 import com.example.android.paint.draw.Shape;
-import com.example.android.paint.draw.cs29.Model.momento.CareTaker;
-import com.example.android.paint.draw.cs29.Model.momento.Originator;
-import com.example.android.paint.draw.cs29.Model.momento.TwoShapes;
+import com.example.android.paint.draw.Model.momento.CareTaker;
+import com.example.android.paint.draw.Model.momento.Originator;
+import com.example.android.paint.draw.Model.momento.TwoShapes;
 
 import java.util.ArrayList;
 

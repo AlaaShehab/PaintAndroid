@@ -1,12 +1,12 @@
 package com.example.android.paint;
 
 import com.example.android.paint.draw.Shape;
-import com.example.android.paint.draw.cs29.Model.Shapes.Circle;
-import com.example.android.paint.draw.cs29.Model.Shapes.Ellipse;
-import com.example.android.paint.draw.cs29.Model.Shapes.Path;
-import com.example.android.paint.draw.cs29.Model.Shapes.Rectangle;
-import com.example.android.paint.draw.cs29.Model.Shapes.Square;
-import com.example.android.paint.draw.cs29.Model.Shapes.Triangle;
+import com.example.android.paint.draw.Model.Shapes.Circle;
+import com.example.android.paint.draw.Model.Shapes.Ellipse;
+import com.example.android.paint.draw.Model.Shapes.Path;
+import com.example.android.paint.draw.Model.Shapes.Rectangle;
+import com.example.android.paint.draw.Model.Shapes.Square;
+import com.example.android.paint.draw.Model.Shapes.Triangle;
 
 /**
  * Created by Personal on 2/8/2018.

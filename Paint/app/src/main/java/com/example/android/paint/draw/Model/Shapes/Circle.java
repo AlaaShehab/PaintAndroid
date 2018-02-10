@@ -1,4 +1,4 @@
-package com.example.android.paint.draw.cs29.Model.Shapes;
+package com.example.android.paint.draw.Model.Shapes;
 
 import android.graphics.Canvas;
 
@@ -7,53 +7,47 @@ import java.util.Map;
 /**
  * @author saraheldafrawy.
  */
-public class Ellipse extends Shape {
-/**
- * constructor.
- */
-	public Ellipse() {
+public class Circle extends Shape {
+
+  /**
+   * constructor.
+   */
+	 public Circle() {
 		super();
 		Map map = new HashMap<>();
     this.setProperties(map);
-    this.getProperties().put("xDiameter", this.getZerodefault());
-		this.getProperties().put("yDiameter", this.getZerodefault());
+    this.getProperties().put("Diameter", this.getZerodefault());
 	}
-
-	/** pt is the Top left of the rectangle. */
-	/** redraw the shape on the canvas. */
+	/* pt is the Top left of the rectangle */
+	/* redraw the shape on the canvas */
 	@Override
 	public final void draw(final Canvas canvas) {
 		//TODO draw function
+//		int diameter = this.getProperties().get("Diameter").intValue();
 //		((Graphics2D) canvas).setColor(this.getFillColor());
 //		((Graphics2D) canvas).fillRoundRect(
 //		    (int) this.getPosition().getX()
-//		    - (this.getProperties().get("xDiameter").intValue() / 2),
+//		    - (this.getProperties().get("Diameter").intValue() / 2),
 //		    (int) this.getPosition().getY()
-//		    - (this.getProperties().get("yDiameter").intValue() / 2),
-//		    this.getProperties().get("xDiameter").intValue(),
-//		    this.getProperties().get("yDiameter").intValue(),
-//		    this.getProperties().get("xDiameter").intValue(),
-//		    this.getProperties().get("yDiameter").intValue());
+//		    - (this.getProperties().get("Diameter").intValue() / 2),
+//				diameter, diameter, diameter, diameter);
 //		((Graphics2D) canvas).setStroke(new java.awt.BasicStroke(2));
 //		((Graphics2D) canvas).setColor(this.getColor());
 //    ((Graphics2D) canvas).drawRoundRect(
 //        (int) this.getPosition().getX()
-//        - (this.getProperties().get("xDiameter").intValue() / 2),
+//        - (this.getProperties().get("Diameer").intValue() / 2),
 //        (int) this.getPosition().getY()
-//        - (this.getProperties().get("yDiameter").intValue() / 2),
-//        this.getProperties().get("xDiameter").intValue(),
-//        this.getProperties().get("yDiameter").intValue(),
-//        this.getProperties().get("xDiameter").intValue(),
-//        this.getProperties().get("yDiameter").intValue());
+//        - (this.getProperties().get("Diameter").intValue() / 2),
+//        diameter, diameter, diameter, diameter);
 	}
 	/**
-	 * creates a deep clone of the shape.
+	 * creates a deep clone from the shape.
 	 */
 	@Override
 	public final Object clone() throws CloneNotSupportedException {
 		//TODO check clone function if correct
 
-		Shape clonedShape = new Ellipse();
+		Shape clonedShape = new Circle();
 		clonedShape.setPosition(this.getPosition());
 		clonedShape.setColor(this.getColor());
 		clonedShape.setFillColor(this.getFillColor());
@@ -67,4 +61,3 @@ public class Ellipse extends Shape {
 	}
 
 }
-

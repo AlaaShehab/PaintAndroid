@@ -24,6 +24,7 @@ public class CanvasView extends View {
     public CanvasView(Context context) {
         super(context);
         setupView ();
+        ((MainActivity)context).setDrawingCanvas(canvas);
     }
 
     public void setupView () {
@@ -70,6 +71,10 @@ public class CanvasView extends View {
         }
         invalidate();
         return true;
+    }
+
+    public Canvas getCanvas() {
+        return canvas;
     }
 }
 

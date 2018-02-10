@@ -1,4 +1,4 @@
-package com.example.android.paint.draw.cs29.Model.Shapes;
+package com.example.android.paint.draw.Model.Shapes;
 
 import android.graphics.Canvas;
 
