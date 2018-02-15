@@ -24,9 +24,6 @@ public class Circle extends Shape {
 	/* redraw the shape on the canvas */
 	@Override
 	public final void draw(Canvas canvas, Paint paint) {
-		//TODO draw function
-		//TODO setColors
-		//TODO set position on creating shape
 		canvas.drawCircle(
 				this.getPosition().x, this.getPosition().y,
 				getProperties().get("Radius").intValue(),
@@ -38,7 +35,6 @@ public class Circle extends Shape {
 	@Override
 	public final Object clone() throws CloneNotSupportedException {
 		//TODO check clone function if correct
-
 		Shape clonedShape = new Circle();
 		clonedShape.setPosition(this.getPosition());
 		clonedShape.setPaint(this.getPaint());

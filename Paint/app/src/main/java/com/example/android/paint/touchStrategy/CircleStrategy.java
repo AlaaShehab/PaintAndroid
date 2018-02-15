@@ -15,7 +15,6 @@ import java.util.Map;
 public class CircleStrategy implements TouchStrategy {
     @Override
     public void actionDown(Shape shapeInUse, Point pt) {
-        Log.e("Hi", pt.x+"   "+pt.y);
         shapeInUse.setPosition(pt);
     }
 

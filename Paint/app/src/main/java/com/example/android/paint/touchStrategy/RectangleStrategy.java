@@ -4,6 +4,9 @@ import android.graphics.Point;
 
 import com.example.android.paint.draw.Shape;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by saraheldafrawy on 09/02/18.
  */
@@ -11,18 +14,27 @@ import com.example.android.paint.draw.Shape;
 public class RectangleStrategy implements TouchStrategy {
     @Override
     public void actionDown(Shape shapeInUse, Point pt) {
-        //TODO implement method
+        shapeInUse.setPosition(pt);
     }
 
     @Override
     public void actionMove(Shape shapeInUse, Point pt) {
-        //TODO implement method
-
+        Map<String, Double> map = new HashMap<>();
+        map.put("width",
+                (double) (shapeInUse.getPosition().x - pt.x));
+        map.put("height",
+                (double) (shapeInUse.getPosition().y - pt.y));
+        //TODO key maps in strings
+        shapeInUse.setProperties(map);
     }
 
     @Override
     public void actionUp(Shape shapeInUse, Point pt) {
-        //TODO implement method
-
+        Map<String, Double> map = new HashMap<>();
+        map.put("width",
+                (double) (shapeInUse.getPosition().x - pt.x));
+        map.put("height",
+                (double) (shapeInUse.getPosition().y - pt.y));
+        shapeInUse.setProperties(map);
     }
 }

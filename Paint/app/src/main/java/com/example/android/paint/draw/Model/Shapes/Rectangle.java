@@ -21,19 +21,9 @@ public class Rectangle extends Shape {
 	/** pt is the Top left of the rectangle. */
 	@Override
 	public final void draw(final Canvas canvas, Paint paint) {
-		//TODO draw function
-//		((Graphics2D) canvas).setColor(this.getFillColor());
-//		((Graphics2D) canvas).fillRect(
-//		    (int) this.getPosition().getX(),
-//		    (int) this.getPosition().getY(),
-//		    this.getProperties().get("width").intValue(),
-//		    this.getProperties().get("height").intValue());
-//		((Graphics2D) canvas).setStroke(new java.awt.BasicStroke(2));
-//		((Graphics2D) canvas).setColor(this.getColor());
-//    ((Graphics2D) canvas).drawRect(
-//        (int) this.getPosition().getX(), (int) this.getPosition().getY(),
-//        this.getProperties().get("width").intValue(),
-//        this.getProperties().get("height").intValue());
+		canvas.drawRect(this.getPosition().x,this.getPosition().y,
+                this.getProperties().get("width").floatValue(),
+				this.getProperties().get("height").floatValue(),paint);
 
 	}
 	/** creates deep clone from shape.*/

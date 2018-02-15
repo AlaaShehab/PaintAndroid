@@ -30,6 +30,9 @@
             android:onClick="removeToolbar"
             android:background="@drawable/ic_showhide"/>
 
+        <!--TODO I guess we need to use this one-->
+        <!--app:srcCompat="@drawable/ic_light_bulb"-->
+
         <ImageButton
             android:id="@+id/shapes"
             android:layout_width="50dp"

@@ -39,20 +39,8 @@ public class Triangle extends Shape {
 	@Override
 	public final void draw(final Canvas canvas, Paint paint) {
 		//TODO draw function
-//		canvas.setColor(this.getFillColor());
-//		for (int i = 0; i < xPoints.length; i++) {
-//			xPoints[i] = this.getProperties()
-//			    .get("point" + i + "x").intValue();
-//		}
-//		((Graphics2D) canvas).setColor(this.getFillColor());
-//		for (int i = 0; i < yPoints.length; i++) {
-//			yPoints[i] = this.getProperties()
-//			    .get("point" + i + "y").intValue();
-//		}
-//		canvas.fillPolygon(xPoints, yPoints, NUMOFPOINTS);
-//		((Graphics2D) canvas).setStroke(new java.awt.BasicStroke(2));
-//    ((Graphics2D) canvas).setColor(this.getColor());
-//    ((Graphics2D) canvas).drawPolygon(xPoints, yPoints, NUMOFPOINTS);
+		//we use path and set width to maximum to draw a fill rectangle
+
 	}
 	/**
 	 * creates deep clone from shape.
