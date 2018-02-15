@@ -1,9 +1,14 @@
 package com.example.android.paint;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+
 import com.example.android.paint.draw.Model.DrawingEngine;
 import com.example.android.paint.draw.Shape;
 
@@ -64,4 +69,26 @@ public class MainActivity extends AppCompatActivity {
     public void addShape(Shape shape) {
         this.drawingEngine.addShape(shape);
     }
+
+    public void removeToolbar(View view) {
+
+        RelativeLayout mainLayout = (RelativeLayout)
+                findViewById(R.id.activity_main_layout);
+
+        LayoutInflater inflater = (LayoutInflater)
+                getSystemService(LAYOUT_INFLATER_SERVICE);
+        final View popupView = inflater.inflate(R.layout.popup_window, null);
+
+        int width = RelativeLayout.LayoutParams.WRAP_CONTENT;
+        int height = RelativeLayout.LayoutParams.WRAP_CONTENT;
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height);
+
+        popupWindow.showAtLocation(findViewById(R.id.activity_main_layout), Gravity.CENTER, 0, 0);
+        popupWindow.setFocusable(true);
+
+//       not sure of this line
+        setBtnSelected(popupView);
+        popupWindow.dismiss();
+    }
+
 }
