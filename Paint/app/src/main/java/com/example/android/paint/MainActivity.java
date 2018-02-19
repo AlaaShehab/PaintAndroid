@@ -1,11 +1,13 @@
 package com.example.android.paint;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
@@ -15,8 +17,12 @@ import com.example.android.paint.draw.Shape;
 public class MainActivity extends AppCompatActivity {
 
     private String btnSelected;
-    /**Suppose DrawingEngine a singleton**/
+    private String editBtnSelected;
+    /**
+     * Suppose DrawingEngine a singleton
+     **/
     private DrawingEngine drawingEngine;
+    private PopupWindow popupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,31 +31,26 @@ public class MainActivity extends AppCompatActivity {
         drawingEngine = new DrawingEngine();
     }
 
-    public void setBtnSelected(View view) {
-//        this.btnSelected = view.getTag().toString();
-        this.btnSelected = "circle";
-//        this.btnSelected = "path";
-        Log.e("btnSelected", btnSelected); //for test
-    }
 
     public void undoAction(View view) {
         drawingEngine.undo();
-        ((CanvasView)findViewById(R.id.canvas_layout)).refreshCanvas(drawingEngine.getShapes());
+        ((CanvasView) findViewById(R.id.canvas_layout)).refreshCanvas(drawingEngine.getShapes());
         //TODO delete refresh
     }
 
-    public void redoAction (View view) {
+    public void redoAction(View view) {
         drawingEngine.redo();
-        ((CanvasView)findViewById(R.id.canvas_layout)).refreshCanvas(drawingEngine.getShapes());
+        ((CanvasView) findViewById(R.id.canvas_layout)).refreshCanvas(drawingEngine.getShapes());
     }
 
-    public void saveAction (View view) {
+    public void saveAction(View view) {
         //TODO saveAction
         //Alaa will save shapes
 //        drawingEngine.save();
 
     }
-    public void loadAction (View view) {
+
+    public void loadAction(View view) {
         //TODO loadAction
         //clear canvas
         //Alaa will load shapes
@@ -71,24 +72,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void removeToolbar(View view) {
+        LinearLayout toolbar = (LinearLayout) findViewById(R.id.toolbar);
+        toolbar.setVisibility(View.INVISIBLE);
+//        Todo change layout to 2 layouts
+    }
 
-        RelativeLayout mainLayout = (RelativeLayout)
-                findViewById(R.id.activity_main_layout);
+    public void shareAction(View view) {
+    }
+
+    public void displayPopupWindow(View view) {
 
         LayoutInflater inflater = (LayoutInflater)
                 getSystemService(LAYOUT_INFLATER_SERVICE);
-        final View popupView = inflater.inflate(R.layout.popup_window, null);
+        assert inflater != null;
+        @SuppressLint("InflateParams") final View popupView = inflater.inflate(R.layout.popup_window, null);
 
         int width = RelativeLayout.LayoutParams.WRAP_CONTENT;
         int height = RelativeLayout.LayoutParams.WRAP_CONTENT;
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, height);
-
+        popupWindow = new PopupWindow(popupView, width, height);
         popupWindow.showAtLocation(findViewById(R.id.activity_main_layout), Gravity.CENTER, 0, 0);
-        popupWindow.setFocusable(true);
 
-//       not sure of this line
-        setBtnSelected(popupView);
+        popupWindow.setFocusable(true);
+//TODO handle clikcing outside the popup window
+    }
+
+    public void setBtnSelected(View view) {
+        this.btnSelected = view.getTag().toString();
         popupWindow.dismiss();
     }
 
+    public String getEditBtnSelected() {
+        return editBtnSelected;
+    }
+
+    public void setEditBtnSelected(View view) {
+        this.editBtnSelected = view.getTag().toString();
+
+    }
 }

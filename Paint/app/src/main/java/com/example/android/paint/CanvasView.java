@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -13,6 +14,8 @@ import android.view.View;
 
 import com.example.android.paint.draw.Shape;
 import com.example.android.paint.touchStrategy.TouchStrategy;
+
+import java.util.logging.Logger;
 
 /**
  * Created by Alaa on 2/8/2018.
@@ -84,6 +87,10 @@ public class CanvasView extends View {
         }
     }
 
+//   todo use command pattern to perform delete or resize ...
+//    and don't forget draw (two states draw and edit)
+//    think chain of resposibility
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         //TODO rest of touch events (resize, delete, select, etc)
@@ -118,6 +125,19 @@ public class CanvasView extends View {
         }
         invalidate();
         return true;
+//        todo dufferentiate between drawing and editing
+    }
+
+    @Override
+    public void setOnLongClickListener(@Nullable OnLongClickListener l) {
+        super.setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Log.e("long Click", ""+view.getPivotX());
+                Log.e("long Click", ""+view.getPivotY());
+                return true;
+            }
+        });
     }
 
     public void refreshCanvas(Shape[] shapes) {
@@ -129,5 +149,6 @@ public class CanvasView extends View {
         Log.e("ShapeListLength",""+this.shapes.length);
         invalidate();
     }
+
 
 }
