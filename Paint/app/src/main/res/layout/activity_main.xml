@@ -6,23 +6,15 @@
     android:orientation="vertical"
     android:id="@+id/activity_main_layout">
 
-    <!--TODO action listeners (completed for toolbar btns only)-->
-    <!--TODO manage weight  (completed for toolbar btns only)-->
-    <!--TODO manage image  -->
-    <!--TODO manage assign ID (completed for toolbar btns only) -->
     <LinearLayout
         android:id="@+id/toolbar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        android:visibility="visible"
         android:layout_alignParentTop="true">
-<!--todo edit names in this button-->
-        <!--todo edit minimize button place as it should always be at the very left of screen-->
 
         <ImageButton
-            android:id="@+id/minimize"
+            android:id="@+id/toolbarRemover"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="4dp"
@@ -31,82 +23,97 @@
             android:layout_marginLeft="2dp"
             android:padding="2dp"
             android:onClick="removeToolbar"
-            android:background="@drawable/ic_showhide"/>
+            android:tag="@string/removeToolbar"
+            android:layout_gravity="start"
+            android:background="@drawable/ic_removeToolbar"/>
 
-        <!--TODO I guess we need to use this one-->
-        <!--app:srcCompat="@drawable/ic_light_bulb"-->
+        <LinearLayout
+            android:id="@+id/toolbarItems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/shapes"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginLeft="2dp"
-            android:layout_margin="2dp"
-            android:onClick="displayPopupWindow"/>
+            <!--TODO I guess we need to use this one-->
+            <!--app:srcCompat="@drawable/ic_light_bulb"-->
 
-        <ImageButton
-            android:id="@+id/pencil"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginLeft="2dp"
-            android:onClick="setBtnSelected"
-            android:background="@drawable/ic_pencil"/>
+            <ImageButton
+                android:id="@+id/shapes"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_margin="2dp"
+                android:tag="@string/shapes"
+                android:onClick="displayShapesPopupWindow"/>
 
-        <ImageButton
-            android:id="@+id/undo"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginRight="1dp"
-            android:layout_marginLeft="1dp"
-            android:padding="2dp"
-            android:onClick="undoAction"
-            android:background="@drawable/ic_undo"/>
+            <ImageButton
+                android:id="@+id/pencil"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
+                android:onClick="setBtnSelected"
+                android:tag="@string/pencil"
+                android:background="@drawable/ic_pencil"/>
 
-        <ImageButton
-            android:id="@+id/redo"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginRight="1dp"
-            android:layout_marginLeft="1dp"
-            android:padding="2dp"
-            android:onClick="redoAction"
-            android:background="@drawable/ic_redo"/>
+            <ImageButton
+                android:id="@+id/undo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginLeft="1dp"
+                android:padding="2dp"
+                android:onClick="undoAction"
+                android:tag="@string/undo"
+                android:background="@drawable/ic_undo"/>
 
-        <ImageButton
-            android:id="@+id/save"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginLeft="2dp"
-            android:padding="2dp"
-            android:onClick="saveAction"
-            android:background="@drawable/ic_save"/>
+            <ImageButton
+                android:id="@+id/redo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginLeft="1dp"
+                android:padding="2dp"
+                android:onClick="redoAction"
+                android:tag="@string/redo"
+                android:background="@drawable/ic_redo"/>
+
+            <ImageButton
+                android:id="@+id/save"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
+                android:padding="2dp"
+                android:onClick="saveAction"
+                android:tag="@string/save"
+                android:background="@drawable/ic_save"/>
 
 
-        <ImageButton
-            android:id="@+id/share"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginRight="2dp"
-            android:layout_marginLeft="2dp"
-            android:padding="2dp"
-            android:onClick="shareAction"
-            android:background="@drawable/ic_share" />
+            <ImageButton
+                android:id="@+id/share"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginLeft="2dp"
+                android:padding="2dp"
+                android:onClick="shareAction"
+                android:tag="@string/share"
+                android:background="@drawable/ic_share" />
 
+        </LinearLayout>
     </LinearLayout>
 
     <com.example.android.paint.CanvasView
@@ -120,10 +127,5 @@
         android:layout_below="@id/toolbar"
         android:background="#FFFFFFFF">
     </com.example.android.paint.CanvasView>
-    <!--TODO custom view (completed) -->
-
-    <!--TODO enable and disable toolbar on button click (not here in the code itself using visibility)-->
-
-    <!--TODO shapes copy, delete, resize, etc buttons -->
 
 </RelativeLayout>

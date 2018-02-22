@@ -3,7 +3,6 @@ package com.example.android.paint;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,8 @@ import android.widget.RelativeLayout;
 
 import com.example.android.paint.draw.Model.DrawingEngine;
 import com.example.android.paint.draw.Shape;
+
+import static com.example.android.paint.R.id.toolbarItems;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -72,27 +73,39 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void removeToolbar(View view) {
-        LinearLayout toolbar = (LinearLayout) findViewById(R.id.toolbar);
-        toolbar.setVisibility(View.INVISIBLE);
-//        Todo change layout to 2 layouts
+        LinearLayout toolbar = (LinearLayout) findViewById(toolbarItems);
+        if (toolbar.getVisibility() == View.VISIBLE) {
+            toolbar.setVisibility(View.INVISIBLE);
+        } else {
+            toolbar.setVisibility(View.VISIBLE);
+        }
     }
 
     public void shareAction(View view) {
     }
 
-    public void displayPopupWindow(View view) {
+    public void displayShapesPopupWindow(View view) {
 
         LayoutInflater inflater = (LayoutInflater)
                 getSystemService(LAYOUT_INFLATER_SERVICE);
         assert inflater != null;
-        @SuppressLint("InflateParams") final View popupView = inflater.inflate(R.layout.popup_window, null);
+        @SuppressLint("InflateParams") final View popupView = inflater.inflate(R.layout.shapes_popup_window, null);
 
         int width = RelativeLayout.LayoutParams.WRAP_CONTENT;
         int height = RelativeLayout.LayoutParams.WRAP_CONTENT;
         popupWindow = new PopupWindow(popupView, width, height);
         popupWindow.showAtLocation(findViewById(R.id.activity_main_layout), Gravity.CENTER, 0, 0);
 
-        popupWindow.setFocusable(true);
+        popupWindow.setOutsideTouchable(true);
+//        or setFocusable(true); with outside touch
+//        or use the following
+//        popupView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                popupWindow.dismiss();
+//                return true;
+//            }
+//        });
 //TODO handle clikcing outside the popup window
     }
 

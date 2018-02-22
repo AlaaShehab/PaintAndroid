@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Paint</string>
     <string name="circle">circle</string>
+    <string name="square">square</string>
+    <string name="rectangle">rectangle</string>
+    <string name="triangle">triangle</string>
+    <string name="ellipse">ellipse</string>
+    <string name="removeToolbar">removeToolbar</string>
+    <string name="shapes">shapes</string>
+    <string name="pencil">pencil</string>
+    <string name="undo">undo</string>
+    <string name="redo">redo</string>
+    <string name="save">save</string>
+    <string name="share">share</string>
 </resources>
