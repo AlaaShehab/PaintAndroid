@@ -18,11 +18,7 @@ public class PathShape extends Shape {
     public PathShape() {
         super();
         this.path = new Path();
-        Map map = new HashMap<>();
-        map.put("path",this.path);
-        this.setProperties(map);
     }
-    /* pt is the Top left of the rectangle */
 	/* redraw the shape on the canvas */
     @Override
     public final void draw(final Canvas canvas, Paint paint) {
@@ -37,12 +33,6 @@ public class PathShape extends Shape {
         clonedShape.setPath(this.path);
         clonedShape.setPosition(this.getPosition());
         clonedShape.setPaint(this.getPaint());
-        Map<String, Double> newMap = new HashMap<>();
-        for (Map.Entry<String, Double> element
-                : this.getProperties().entrySet()) {
-            newMap.put(element.getKey(), element.getValue());
-        }
-        clonedShape.setProperties(newMap);
         return clonedShape;
     }
 

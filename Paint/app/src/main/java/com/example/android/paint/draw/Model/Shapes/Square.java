@@ -21,14 +21,13 @@ public class Square extends Shape {
 	@Override
 	public final void draw(final Canvas canvas, Paint paint) {
 		canvas.drawRect(this.getPosition().x,this.getPosition().y,
-				this.getProperties().get("length").floatValue(),
-				this.getProperties().get("length").floatValue(),paint);
+				this.getProperties().get("length").intValue(),
+				this.getProperties().get("length").intValue(),paint);
 		//TODO zabaty magnitude square length 3ashan yersem more flexibly
 	}
 	/** creates a deep clone from shape.*/
 	@Override
 	public final Object clone() throws CloneNotSupportedException {
-		//TODO check clone function if correct
 		Shape clonedShape = new Square();
 		clonedShape.setPosition(this.getPosition());
 		clonedShape.setColor(this.getColor());
