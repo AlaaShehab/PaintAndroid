@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.android.paint.draw.Model.DrawingEngine;
 import com.example.android.paint.draw.Shape;
@@ -35,12 +36,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void undoAction(View view) {
-        drawingEngine.undo();
+        if (!(drawingEngine.undo())) {
+            Toast.makeText(this,"No More Steps to Undo",Toast.LENGTH_SHORT).show();
+        }
         ((CanvasView) findViewById(R.id.canvas_layout)).refreshCanvas(drawingEngine.getShapes());
     }
 
     public void redoAction(View view) {
-        drawingEngine.redo();
+        if (!(drawingEngine.redo())) {
+            Toast.makeText(this,"No More Steps to Redo",Toast.LENGTH_SHORT).show();
+        }
         ((CanvasView) findViewById(R.id.canvas_layout)).refreshCanvas(drawingEngine.getShapes());
     }
 
@@ -50,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
 //        drawingEngine.save();
 
     }
+
+    //TODO make a colorpicker using preferences
 
     //TODO add button for load or open (extra feature)
     public void loadAction(View view) {
@@ -106,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-//TODO handle clikcing outside the popup window
+    //TODO handle clikcing outside the popup window
     }
 
     public void setBtnSelected(View view) {
