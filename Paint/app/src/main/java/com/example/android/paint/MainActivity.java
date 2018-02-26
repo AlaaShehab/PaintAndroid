@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     public void undoAction(View view) {
         drawingEngine.undo();
         ((CanvasView) findViewById(R.id.canvas_layout)).refreshCanvas(drawingEngine.getShapes());
-        //TODO delete refresh
     }
 
     public void redoAction(View view) {
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //TODO add button for load or open (extra feature)
     public void loadAction(View view) {
         //TODO loadAction
         //clear canvas
@@ -59,8 +60,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //TODO open extra feature
+    public void shareAction(View view) {
 
+    }
 
     //TODO Copy, Move, Resize (Update methods in DrawingEngine)
 
@@ -81,8 +83,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void shareAction(View view) {
-    }
 
     public void displayShapesPopupWindow(View view) {
 
@@ -95,23 +95,25 @@ public class MainActivity extends AppCompatActivity {
         int height = RelativeLayout.LayoutParams.WRAP_CONTENT;
         popupWindow = new PopupWindow(popupView, width, height);
         popupWindow.showAtLocation(findViewById(R.id.activity_main_layout), Gravity.CENTER, 0, 0);
+//
+//        popupWindow.setOutsideTouchable(true);
+//        popupWindow.setFocusable(true);
 
-        popupWindow.setOutsideTouchable(true);
-//        or setFocusable(true); with outside touch
-//        or use the following
-//        popupView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                popupWindow.dismiss();
-//                return true;
-//            }
-//        });
+        popupView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popupWindow.dismiss();
+                return true;
+            }
+        });
 //TODO handle clikcing outside the popup window
     }
 
     public void setBtnSelected(View view) {
         this.btnSelected = view.getTag().toString();
-        popupWindow.dismiss();
+        if (!(this.btnSelected.equals(getString(R.string.path)))) {
+            popupWindow.dismiss();
+        }
     }
 
     public String getEditBtnSelected() {

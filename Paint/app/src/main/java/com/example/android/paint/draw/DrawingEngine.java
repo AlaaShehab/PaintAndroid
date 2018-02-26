@@ -3,8 +3,6 @@ package com.example.android.paint.draw;
 import android.graphics.Canvas;
 
 public interface DrawingEngine {
-  /* redraw all shapes on the canvas */
-  public void refresh(Canvas canvas);
   
   public void addShape(Shape shape);
   public void removeShape(Shape shape);

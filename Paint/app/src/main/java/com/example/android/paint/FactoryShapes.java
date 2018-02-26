@@ -1,5 +1,7 @@
 package com.example.android.paint;
 
+import android.content.Context;
+
 import com.example.android.paint.draw.Shape;
 import com.example.android.paint.draw.Model.Shapes.Circle;
 import com.example.android.paint.draw.Model.Shapes.Ellipse;
@@ -14,21 +16,19 @@ import com.example.android.paint.draw.Model.Shapes.Triangle;
 
 public class FactoryShapes {
 
-    //TODO return new shape <Completed I think>;
+    public static Shape getShape(Context context, String buttonSelected) {
 
-    public static Shape getShape(String buttonSelected) {
-
-        if (buttonSelected.equals("circle")) {
+        if (buttonSelected.equals(context.getString(R.string.circle))) {
             return new Circle();
-        } else if (buttonSelected.equals("square")) {
+        } else if (buttonSelected.equals(context.getString(R.string.square))) {
             return new Square();
-        } else if (buttonSelected.equals("triangle")) {
+        } else if (buttonSelected.equals(context.getString(R.string.triangle))) {
             return new Triangle();
-        } else if (buttonSelected.equals("rectangle")) {
+        } else if (buttonSelected.equals(context.getString(R.string.rectangle))) {
             return new Rectangle();
-        } else if (buttonSelected.equals("ellipse")) {
+        } else if (buttonSelected.equals(context.getString(R.string.ellipse))) {
             return new Ellipse();
-        } else if (buttonSelected.equals("path")) {
+        } else if (buttonSelected.equals(context.getString(R.string.path))) {
             return new PathShape();
         } else {
             return null;

@@ -1,5 +1,7 @@
 package com.example.android.paint;
 
+import android.content.Context;
+
 import com.example.android.paint.touchStrategy.CircleStrategy;
 import com.example.android.paint.touchStrategy.EllipseStrategy;
 import com.example.android.paint.touchStrategy.PathStrategy;
@@ -14,18 +16,18 @@ import com.example.android.paint.touchStrategy.TriangleStrategy;
 
 public class StrategyFactory {
 
-    public static TouchStrategy getStrategy(String buttonSelected) {
-        if (buttonSelected.equals("circle")) {
+    public static TouchStrategy getStrategy(Context context, String buttonSelected) {
+        if (buttonSelected.equals(context.getString(R.string.circle))) {
             return new CircleStrategy();
-        } else if (buttonSelected.equals("square")) {
+        } else if (buttonSelected.equals(context.getString(R.string.square))) {
             return new SquareStrategy();
-        } else if (buttonSelected.equals("triangle")) {
+        } else if (buttonSelected.equals(context.getString(R.string.triangle))) {
             return new TriangleStrategy();
-        } else if (buttonSelected.equals("rectangle")) {
+        } else if (buttonSelected.equals(context.getString(R.string.rectangle))) {
             return new RectangleStrategy();
-        } else if (buttonSelected.equals("ellipse")) {
+        } else if (buttonSelected.equals(context.getString(R.string.ellipse))) {
             return new EllipseStrategy();
-        } else if (buttonSelected.equals("path")) {
+        } else if (buttonSelected.equals(context.getString(R.string.path))) {
             return new PathStrategy();
         } else {
             return null;

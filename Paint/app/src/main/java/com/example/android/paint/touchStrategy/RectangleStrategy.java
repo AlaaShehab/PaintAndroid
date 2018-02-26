@@ -21,9 +21,9 @@ public class RectangleStrategy implements TouchStrategy {
     public void actionMove(Shape shapeInUse, Point pt) {
         Map<String, Double> map = new HashMap<>();
         map.put("width",
-                (double) (shapeInUse.getPosition().x - pt.x));
+                (double)pt.x);
         map.put("height",
-                (double) (shapeInUse.getPosition().y - pt.y));
+                (double) pt.y);
         //TODO key maps in strings
         shapeInUse.setProperties(map);
     }
@@ -32,9 +32,9 @@ public class RectangleStrategy implements TouchStrategy {
     public void actionUp(Shape shapeInUse, Point pt) {
         Map<String, Double> map = new HashMap<>();
         map.put("width",
-                (double) (shapeInUse.getPosition().x - pt.x));
+                (double)pt.x);
         map.put("height",
-                (double) (shapeInUse.getPosition().y - pt.y));
+                (double)pt.y);
         shapeInUse.setProperties(map);
     }
 }

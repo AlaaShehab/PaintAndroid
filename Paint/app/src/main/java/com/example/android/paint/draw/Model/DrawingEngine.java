@@ -35,16 +35,6 @@ public class DrawingEngine implements com.example.android.paint.draw.DrawingEngi
   }
 
   /**
-   * redraw shapes on canvas.
-   */
-  @Override
-  public final void refresh(final Canvas canvas) {
-    for (int i = 0; i < listOfShapes.size(); i++) {
-      listOfShapes.get(i).draw(canvas, listOfShapes.get(i).getPaint());
-    }
-  }
-
-  /**
    * add a new shape in listOfShapes. to draw it later on canvas
    */
   @Override

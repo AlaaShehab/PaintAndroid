@@ -26,8 +26,6 @@ public class CanvasView extends View {
     private Paint paint;
     private Canvas canvas;
     private Shape shapeInUse;
-    private Shape[] shapes;
-    private boolean flag = false;
 
     public CanvasView(Context context, AttributeSet sets) {
         super(context, sets);
@@ -40,12 +38,12 @@ public class CanvasView extends View {
         paint = new Paint();
         paint.setColor(Color.CYAN);
         paint.setStrokeWidth(4);
-        ////// valid only for pencil
-//        paint.setAntiAlias(true);
-//        paint.setStrokeWidth(20);
-//        paint.setStyle(Paint.Style.STROKE);
-//        paint.setStrokeJoin(Paint.Join.ROUND);
-//        paint.setStrokeCap(Paint.Cap.ROUND);
+        //// valid only for pencil
+        paint.setAntiAlias(true);
+        paint.setStrokeWidth(20);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeJoin(Paint.Join.ROUND);
+        paint.setStrokeCap(Paint.Cap.ROUND);
     }
 
     public void setPaint(Paint paint) {
@@ -57,33 +55,18 @@ public class CanvasView extends View {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         this.bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-        Log.e("OnSizeChange", "Hi");
         this.canvas = new Canvas(bitmap);
-        canvas.save();
+        this.canvas.save();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (flag) {
-            this.canvas.drawColor(Color.WHITE);
-            this.canvas.save();
-            for(int i = 0; i< shapes.length; i++) {
-                this.canvas.restore();
-                Log.e("From Loop", ""+flag);
-                shapes[i].draw(this.canvas,shapes[i].getPaint());
-                this.canvas.save();
-            }
-            flag = false;
-            Log.e("From refresh", ""+flag);
-        } else {
-            if (shapeInUse != null) {
-                this.canvas.restore();
-                shapeInUse.draw(this.canvas, paint);
-                this.canvas.save();
-            }
-        }
+
         if (bitmap != null) {
             canvas.drawBitmap(bitmap, 0, 0, null);
+        }
+        if (shapeInUse != null) {
+            shapeInUse.draw(canvas, paint);
         }
     }
 
@@ -99,9 +82,9 @@ public class CanvasView extends View {
         Point pt = new Point((int) event.getX(), (int) event.getY());
         String buttonSelected = ((MainActivity) getContext()).getBtnSelected();
         if (shapeInUse == null) {
-            shapeInUse = FactoryShapes.getShape(buttonSelected);
+            shapeInUse = FactoryShapes.getShape(getContext(),buttonSelected);
         }
-        TouchStrategy strategy = StrategyFactory.getStrategy(buttonSelected);
+        TouchStrategy strategy = StrategyFactory.getStrategy(getContext(),buttonSelected);
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 strategy.actionDown(shapeInUse, pt);
@@ -113,11 +96,13 @@ public class CanvasView extends View {
             case MotionEvent.ACTION_UP:
                 strategy.actionUp(shapeInUse, pt);
                 try {
-                    ((MainActivity) getContext()).addShape((Shape) shapeInUse.clone());
+                    if (shapeInUse != null) {
+                        ((MainActivity) getContext()).addShape((Shape) shapeInUse.clone());
+                    }
                 } catch (CloneNotSupportedException e) {
                     e.printStackTrace();
-                    Log.e("CloneError", "CLONE!!!!");
                 }
+                shapeInUse.draw(this.canvas, paint);
                 shapeInUse = null;
                 break;
             default:
@@ -125,30 +110,29 @@ public class CanvasView extends View {
         }
         invalidate();
         return true;
-//        todo dufferentiate between drawing and editing
+//        todo differentiate between drawing and editing
     }
 
-    @Override
-    public void setOnLongClickListener(@Nullable OnLongClickListener l) {
-        super.setOnLongClickListener(new OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Log.e("long Click", ""+view.getPivotX());
-                Log.e("long Click", ""+view.getPivotY());
-                return true;
-            }
-        });
-    }
+//    @Override
+//    public void setOnLongClickListener(@Nullable OnLongClickListener l) {
+//        super.setOnLongClickListener(new OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Log.e("long Click", "" + view.getPivotX());
+//                Log.e("long Click", "" + view.getPivotY());
+//                return true;
+//            }
+//        });
+//    }
 
     public void refreshCanvas(Shape[] shapes) {
         //TODO undo not working correctly in path
-        flag = true;
-        Log.e("From refresh", ""+flag);
-        Log.e("ShapeListLength",""+shapes.length);
-        this.shapes = shapes;
-        Log.e("ShapeListLength",""+this.shapes.length);
+        this.canvas.drawColor(Color.WHITE);
+        for (int i = 0; i < shapes.length; i++) {
+            //TODO shapes[i].draw(this.canvas, shape[i].getPaint);
+            shapes[i].draw(this.canvas, paint);
+        }
         invalidate();
     }
-
 
 }

@@ -21,7 +21,7 @@ public class SquareStrategy implements TouchStrategy {
     public void actionMove(Shape shapeInUse, Point pt) {
         Map<String, Double> map = new HashMap<>();
         map.put("length",
-                (double) (shapeInUse.getPosition().x - pt.x));
+                (double)pt.x);
         //TODO key maps in strings
         shapeInUse.setProperties(map);
     }
@@ -30,7 +30,7 @@ public class SquareStrategy implements TouchStrategy {
     public void actionUp(Shape shapeInUse, Point pt) {
         Map<String, Double> map = new HashMap<>();
         map.put("length",
-                (double) (shapeInUse.getPosition().x - pt.x));
+                (double) pt.x);
         shapeInUse.setProperties(map);
     }
 }

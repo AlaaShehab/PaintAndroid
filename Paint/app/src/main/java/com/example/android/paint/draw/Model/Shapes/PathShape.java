@@ -16,17 +16,16 @@ public class PathShape extends Shape {
      * constructor.
      */
     public PathShape() {
-        //TODO Path properties
         super();
-        path = new Path();
+        this.path = new Path();
         Map map = new HashMap<>();
+        map.put("path",this.path);
         this.setProperties(map);
     }
     /* pt is the Top left of the rectangle */
 	/* redraw the shape on the canvas */
     @Override
     public final void draw(final Canvas canvas, Paint paint) {
-        //TODO draw function
         canvas.drawPath(this.path, paint);
     }
     /**
@@ -34,10 +33,8 @@ public class PathShape extends Shape {
      */
     @Override
     public final Object clone() throws CloneNotSupportedException {
-        //TODO check clone function if correct
-        //TODO check if it is correct for Path
-
-        Shape clonedShape = new PathShape();
+        PathShape clonedShape = new PathShape();
+        clonedShape.setPath(this.path);
         clonedShape.setPosition(this.getPosition());
         clonedShape.setPaint(this.getPaint());
         Map<String, Double> newMap = new HashMap<>();
@@ -54,4 +51,7 @@ public class PathShape extends Shape {
         return this.path;
     }
 
+    public void setPath(Path path) {
+        this.path = path;
+    }
 }

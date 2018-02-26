@@ -23,6 +23,7 @@ public class Square extends Shape {
 		canvas.drawRect(this.getPosition().x,this.getPosition().y,
 				this.getProperties().get("length").floatValue(),
 				this.getProperties().get("length").floatValue(),paint);
+		//TODO zabaty magnitude square length 3ashan yersem more flexibly
 	}
 	/** creates a deep clone from shape.*/
 	@Override

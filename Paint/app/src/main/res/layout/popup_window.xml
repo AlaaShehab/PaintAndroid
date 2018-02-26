@@ -5,7 +5,7 @@
     android:layout_gravity="center"
     android:id="@+id/popupWindow"
     android:background="@drawable/transparentbg">
-<!--todo add tags-->
+<!--todo add tags (done by sarah)-->
     <ImageButton
         android:id="@+id/circle"
         android:layout_width="50dp"
@@ -33,6 +33,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:padding="15dp"
+        android:tag="@string/square"
         android:onClick="setBtnSelected"
         android:layout_toEndOf="@id/circle" />
     <ImageButton
@@ -47,6 +48,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:padding="15dp"
+        android:tag="@string/rectangle"
         android:onClick="setBtnSelected"
         android:layout_toEndOf="@id/square" />
     <ImageButton
@@ -61,6 +63,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:padding="15dp"
+        android:tag="@string/triangle"
         android:onClick="setBtnSelected"
         android:layout_alignParentStart="true" />
     <ImageButton
@@ -77,6 +80,7 @@
         android:padding="15dp"
         android:layout_toEndOf="@id/triangle"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="20dp" />
+        android:layout_marginEnd="20dp"
+        android:tag="@string/ellipse"/>
 
 </RelativeLayout>

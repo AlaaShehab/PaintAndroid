@@ -81,6 +81,8 @@
         android:tag="@string/ellipse"
         android:layout_toEndOf="@id/triangle"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="20dp" />
+        android:layout_marginEnd="20dp"
+        android:onClick="setBtnSelected"
+        />
 
 </RelativeLayout>
