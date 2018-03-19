@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/transparentbg">
+    android:background="@drawable/transparent">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/transparentbg"
+        android:background="@drawable/transparent"
         android:layout_centerHorizontal="true">
 
         <ImageButton
@@ -20,6 +20,7 @@
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="2dp"
+            android:tag="@string/delete"
             android:background="@drawable/ic_delete"
             android:onClick="setEditBtnSelected"/>
 
@@ -32,6 +33,7 @@
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
+            android:tag="@string/copy"
             android:onClick="setEditBtnSelected"/>
 
         <ImageButton
@@ -43,6 +45,7 @@
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
+            android:tag="@string/resize"
             android:onClick="setEditBtnSelected"/>
 
 
@@ -55,6 +58,7 @@
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
+            android:tag="@string/move"
             android:onClick="setEditBtnSelected"/>
 
 
@@ -67,7 +71,8 @@
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
-            android:onClick="setEditBtnSelected"/>
+            android:tag="@string/paintpalette"
+            android:onClick="setColor"/>
 
 
     </LinearLayout>

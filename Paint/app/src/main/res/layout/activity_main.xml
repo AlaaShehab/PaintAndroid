@@ -6,6 +6,17 @@
     android:orientation="vertical"
     android:id="@+id/activity_main_layout">
 
+
+    <com.example.android.paint.CanvasView
+        android:id="@+id/canvas_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="#FFFFFFFF">
+    </com.example.android.paint.CanvasView>
+
     <LinearLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -109,23 +120,12 @@
                 android:layout_marginRight="2dp"
                 android:layout_marginLeft="2dp"
                 android:padding="2dp"
-                android:onClick="shareAction"
+                android:onClick="setColor"
                 android:tag="@string/share"
                 android:background="@drawable/ic_share" />
 
         </LinearLayout>
     </LinearLayout>
 
-    <com.example.android.paint.CanvasView
-        android:id="@+id/canvas_layout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="3dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@id/toolbar"
-        android:background="#FFFFFFFF">
-    </com.example.android.paint.CanvasView>
 
 </RelativeLayout>

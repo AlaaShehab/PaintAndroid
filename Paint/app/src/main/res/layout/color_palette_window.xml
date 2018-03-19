@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/semitransparent"
+    android:id="@+id/color_palette_view">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/transparent"
+        android:layout_centerInParent="true">
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="300dip"
+            android:layout_height="wrap_content"
+            android:layout_margin="10px"
+            android:max="100"
+            android:progress="50">
+        </SeekBar>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="Select"
+            android:layout_below="@id/seekbar"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+</RelativeLayout>

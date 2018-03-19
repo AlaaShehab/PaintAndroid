@@ -12,4 +12,9 @@
     <string name="redo">redo</string>
     <string name="save">save</string>
     <string name="share">share</string>
+    <string name="delete">delete</string>
+    <string name="copy">copy</string>
+    <string name="resize">resize</string>
+    <string name="move">move</string>
+    <string name="paintpalette">paintpalette</string>
 </resources>
